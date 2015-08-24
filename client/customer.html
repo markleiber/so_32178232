@@ -1,0 +1,39 @@
+<template name="customerPage">
+Insert Form<br />
+{{#autoForm id="afInsertDemo" type="insert" collection=Collections.Customers}}
+  <div class="form-group {{#if afFieldIsInvalid name='name'}}has-error{{/if}}">
+    <label class="control-label">{{afFieldLabelText name='name'}}</label>
+    {{> afFieldInput name='name'}}
+    {{#if afFieldIsInvalid name='name'}}
+    <span class="help-block">{{{afFieldMessage name='name'}}}</span>
+    {{/if}}
+  </div>
+ <div class="form-group {{#if afFieldIsInvalid name='age'}}has-error{{/if}}">
+    <label class="control-label">{{afFieldLabelText name='age'}}</label>
+    {{> afFieldInput name='age'}}
+    {{#if afFieldIsInvalid name='age'}}
+    <span class="help-block">{{{afFieldMessage name='age'}}}</span>
+    {{/if}}
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Add Customer</button>
+    <button type="reset" class="btn btn-default">Reset Form</button>
+  </div>
+{{/autoForm}}
+<hr />
+Customers List:<br />
+<table>
+<tr>
+  <th>Name</th>
+  <th>Age</th>
+</tr>
+{{#each customers}}
+<tr>
+  <td>{{name}}</td>
+  <td>{{age}}</td>
+  <td><a href="update/{{_id}}"><button class="btn btn-primary" id="customerEditButton">Edit</button></a></td>
+  <td><button class="btn btn-primary" id="customerDeleteButton">Delete</button></td>
+</tr>
+{{/each}}
+</table>
+</template>

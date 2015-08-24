@@ -1,0 +1,9 @@
+<template name="customerUpdate">
+<a href="/">Back to list</a><hr />
+{{#autoForm id="afUpdateDemo" type="update" collection=Collections.Customers doc=this}}
+{{> afQuickFields schema="Schemas.customerSchema"}}
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary">Update</button>
+  </div>
+{{/autoForm}}
+</template>
